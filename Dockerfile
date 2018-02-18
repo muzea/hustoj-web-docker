@@ -43,7 +43,8 @@ RUN set -ex \
     && cd / && git clone https://github.com/zhblue/hustoj.git \
     && mv /hustoj/trunk/web /www \
     && rm -rf /hustoj \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/cache/apk/* \
+    && mkdir /run/nginx
 
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 WORKDIR /www
