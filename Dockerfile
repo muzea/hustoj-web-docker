@@ -8,7 +8,6 @@ ENV PHP_MAX_FILE_UPLOAD 200
 ENV PHP_MAX_POST        100M
 
 COPY entrypoint.sh /entrypoint.sh
-COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 
 RUN set -ex \
     && apk update \
@@ -48,6 +47,7 @@ RUN set -ex \
     && rm -rf /hustoj \
     && rm -rf /var/cache/apk/*
 
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 WORKDIR /www
 EXPOSE 80
 
