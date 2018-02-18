@@ -7,12 +7,16 @@ ENV MAX_UPLOAD          50M
 ENV PHP_MAX_FILE_UPLOAD 200
 ENV PHP_MAX_POST        100M
 
+COPY entrypoint.sh /entrypoint.sh
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+
 RUN set -ex \
     && apk update \
     && apk upgrade \
     && apk add --no-cache \
                git \
                tar \
+               nginx \
                php5-mcrypt \
                php5-openssl \
                php5-gmp \
@@ -45,5 +49,6 @@ RUN set -ex \
     && rm -rf /var/cache/apk/*
 
 WORKDIR /www
+EXPOSE 80
 
-ENTRYPOINT ["/usr/bin/php-fpm5"]
+ENTRYPOINT ["/entrypoint.sh"]
