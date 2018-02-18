@@ -7,8 +7,6 @@ ENV MAX_UPLOAD          50M
 ENV PHP_MAX_FILE_UPLOAD 200
 ENV PHP_MAX_POST        100M
 
-COPY entrypoint.sh /entrypoint.sh
-
 RUN set -ex \
     && apk update \
     && apk upgrade \
