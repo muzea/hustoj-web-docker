@@ -24,7 +24,6 @@ RUN set -ex \
                php5-xml \
                php5-gd \
                php5-pdo_mysql \
-               php5-pdo_sqlite \
                php5-bz2 \
                php5-iconv \
                php5-curl \
@@ -47,4 +46,4 @@ RUN set -ex \
 
 WORKDIR /www
 
-ENTRYPOINT ["/usr/bin/php-fpm"]
+ENTRYPOINT ["/usr/bin/php-fpm5"]
