@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.7
 LABEL maintainer="muzea <mr.muzea@gmail.com>"
 
 ENV TIMEZONE            Asia/Shanghai
